@@ -15,6 +15,7 @@ gem 'omniauth-github'
 gem 'figaro'
 
 group :development, :test do
+  gem 'capybara'
   gem 'pry'
   gem 'byebug', platform: :mri
 end

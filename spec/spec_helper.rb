@@ -15,6 +15,19 @@ Capybara.default_host = 'http://example.org'
 
 OmniAuth.config.test_mode = true
 OmniAuth.config.add_mock(:github, {
-  :uid => '12345'
-  :name => 'Julio'
-})
+  :uid => '12345',
+  :info => {
+    :name => 'Julio',
+    :image => 'https://robohash.org/suuuuuper',
+    :nickname => 'jdog'
+  },
+  :credentials => {
+    :token => 'token'
+  },
+  :extra => {
+    :raw_info => {
+      :location => 'Denver, CO',
+      :created_at => '2016-01-29T16:40:00Z'
+    }
+  }
+}

@@ -1,6 +1,43 @@
-<% if current_user %>
-  Welcome to partytown, <%= current_user.name %>
-  <%= link_to "Logout", logout_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign in with Github", github_login_path %>
-<% end %>
+<div class="custom-container main">
+  <div class="col-md-3 left">
+    <%= image_tag(current_user.image, height: '230',  width: '229', class: 'avatar') %>
+  </div>
+
+  <div class="col-md-9 right">
+    <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li>
+        <li role="presentation"><a href="#repos" aria-controls="repositories" role="tab" data-toggle="tab">Repositories</a></li>
+        <li role="presentation"><a href="#stars" aria-controls="stars" role="tab" data-toggle="tab">Stars</a></li>
+        <li role="presentation"><a href="#followers" aria-controls="followers" role="tab" data-toggle="tab">Followers</a></li>
+        <li role="presentation"><a href="#following" aria-controls="following" role="tab" data-toggle="tab">Following</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="overview">
+          overview
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="repositories">
+          repos
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="stars">
+          stars
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="followers">
+          followers
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="following">
+          following
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

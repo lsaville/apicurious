@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= render partial: 'shared/post_navbar' %>
+    <% else %>
+      <%= render partial: 'shared/pre_navbar' %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

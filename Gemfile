@@ -13,6 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'omniauth-github'
 gem 'figaro'
+gem 'faraday'
 
 group :development, :test do
   gem 'rspec-rails'

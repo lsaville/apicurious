@@ -13,8 +13,8 @@ describe 'oauth login' do
       click_link "Login with Github"
 
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content("Welcome to partytown")
-      expect(page).to have_content("Logout")
+      expect(page).to have_content("Julio")
+      expect(page).to have_content("jdog")
     end
   end
 

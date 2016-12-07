@@ -1,6 +1,17 @@
 class GithubService
-  def repositories
-    response = Faraday.get("https://api.github.com/user/repos?access_token=#{ENV['token']}&affiliation=owner")
-    parsed_response = JSON.parse(response.body, symbolize_names: true)
+  def initialize(token)
+    @conn = Faraday.new(url: "https://api.github.com/") do |faraday|
+              faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+              faraday.params[:access_token] = token
+            end
   end
+
+  def repos
+    response = conn.get "user/repos", { affiliation: 'owner' } 
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  private
+
+    attr_reader :conn
 end

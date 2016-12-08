@@ -1,0 +1,19 @@
+<div class="custom-container main">
+  <div class="col-md-3 left">
+    <%= image_tag(@user.image, height: '230',  width: '229', class: 'avatar') %>
+    <%= @user.name %>
+    <%= @user.login %>
+  </div>
+
+  <div class="col-md-9 right">
+    <div>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Overview</a></li>
+        <li role="presentation"><a href="#">Respositories</a></li>
+        <li role="presentation"><a href="#">Stars</a></li>
+        <li role="presentation"><a href="#">Followers</a></li>
+        <li role="presentation"><a href="#">Following</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -19,4 +19,10 @@ class GithubRepo
       GithubRepo.new(raw_repo)
     end
   end
+
+  def self.get_starred_repos(token)
+    GithubService.new(token).starred.map do |raw_repo|
+      GithubRepo.new(raw_repo)
+    end
+  end
 end

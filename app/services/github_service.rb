@@ -6,6 +6,11 @@ class GithubService
             end
   end
 
+  def user_data
+    response = conn.get "user"
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   def repos
     response = conn.get "user/repos", { affiliation: 'owner' } 
     JSON.parse(response.body, symbolize_names: true)

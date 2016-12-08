@@ -25,6 +25,19 @@ describe 'GithubService' do
       expect(repo).to have_key(:description)
     end
   end
+  
+  context '#users_from_login' do
+    it 'returns a collection of users from a collection of follows', :vcr do
+      follows = [{:login => 'jbkimble'},{:login => 'eekme'}]
+      users = GithubService.new(ENV['token']).users_from_login(follows)
+      user = users.first
+
+      expect(users.count).to eq(2)
+      expect(user[:login]).to eq('jbkimble')
+      expect(user).to have_key(:hireable)
+      expect(user).to have_key(:location)
+    end
+  end
 
   context '#followers' do
     it 'returns a collection of followers', :vcr do
@@ -33,6 +46,12 @@ describe 'GithubService' do
 
       expect(followers).to be_an(Array)
       expect(follower).to have_key(:login)
+      expect(follower).to have_key(:avatar_url)
+      expect(follower).to have_key(:url)
+      expect(follower).to have_key(:company)
+      expect(follower).to have_key(:bio)
+      expect(follower).to have_key(:name)
+      expect(follower).to have_key(:location)
     end
   end
 
@@ -43,6 +62,12 @@ describe 'GithubService' do
 
       expect(people_followed).to be_an(Array)
       expect(one_followed).to have_key(:login)
+      expect(one_followed).to have_key(:avatar_url)
+      expect(one_followed).to have_key(:url)
+      expect(one_followed).to have_key(:company)
+      expect(one_followed).to have_key(:bio)
+      expect(one_followed).to have_key(:name)
+      expect(one_followed).to have_key(:location)
     end
   end
 end

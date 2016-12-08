@@ -11,6 +11,21 @@ class GithubService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def starred
+    response = conn.get "user/starred"
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def followers
+    response = conn.get "user/followers"
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def following
+    response = conn.get "user/following" 
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   private
 
     attr_reader :conn

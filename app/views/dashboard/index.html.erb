@@ -1,8 +1,8 @@
 <div class="custom-container main">
   <div class="col-md-3 left">
-    <%= image_tag(current_user.image, height: '230',  width: '229', class: 'avatar') %>
-    <%= current_user.name %>
-    <%= current_user.username %>
+    <%= image_tag(@user.image, height: '230',  width: '229', class: 'avatar') %>
+    <%= @user.name %>
+    <%= @user.login %>
   </div>
 
   <div class="col-md-9 right">

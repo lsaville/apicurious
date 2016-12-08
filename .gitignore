@@ -21,3 +21,5 @@
 
 # ignore .swp files
 *.swp
+
+spec/fixtures/vcr_cassettes/*

@@ -6,7 +6,7 @@ describe 'oauth login' do
     stub_omniauth
   end
 
-  context 'user with github credentials' do
+  context 'user with github credentials', :vcr do
     it 'logs you in when clicking login link and redirects to dashboard' do
       visit root_path
 

@@ -18,12 +18,21 @@ class GithubService
 
   def followers
     response = conn.get "user/followers"
-    JSON.parse(response.body, symbolize_names: true)
+    parsed_response = JSON.parse(response.body, symbolize_names: true)
+    users_from_login(parsed_response)
   end
 
   def following
     response = conn.get "user/following" 
-    JSON.parse(response.body, symbolize_names: true)
+    parsed_response = JSON.parse(response.body, symbolize_names: true)
+    users_from_login(parsed_response)
+  end
+
+  def users_from_login(follows)
+    follows.map do |follow|
+      response = conn.get "users/#{follow[:login]}"
+      JSON.parse(response.body, symbolize_names: true)
+    end
   end
 
   private

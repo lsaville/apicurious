@@ -70,4 +70,15 @@ describe 'GithubService' do
       expect(one_followed).to have_key(:location)
     end
   end
+
+  context '#user_data' do
+    it 'returns all the data for the authenticated user', :vcr do
+      me = GithubService.new(ENV['token']).user_data
+       
+      expect(me).to be_a(Hash)
+      expect(me).to have_key(:name)
+      expect(me).to have_key(:login)
+      expect(me).to have_key(:company)
+    end
+  end
 end
